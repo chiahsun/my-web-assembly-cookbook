@@ -1,0 +1,27 @@
+= My WebAssembly Cookbook
+:doctype: book
+:publication-type: book
+:toc: left
+:toclevels: 4
+// https://docs.asciidoctor.org/asciidoc/latest/verbatim/source-blocks/
+// https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/highlightjs/
+:source-highlighter: highlight.js
+:highlightjs-languages: bash, dart
+:source-language: adoc
+:icons: font
+:stem: <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>
+
+:sectnums:
+:sectnumlevels: 4
+
+
+
+[discrete]
+= WebAssembly Org
+== https://webassembly.org/getting-started/developers-guide/[Developer's Guide]
+include::1.1-CompileCModuleToWebAssembly.adoc[]
+
+
+
+
+

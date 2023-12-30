@@ -1,0 +1,38 @@
+
+=== https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm[Compile a C/C++ Module to WebAssembly]
+
+1. Install https://emscripten.org/[Emscripten]
++
+On Mac, install Emscripten through brew https://formulae.brew.sh/formula/emscripten[formula]
++
+[source,bash]
+brew install emscripten
+
+2. Compile the code
++
+link:./1.1-CompileCModuleToWebAssembly[Source code directory]
++
+`hello.c`
++
+[source,c]
+----
+include::./1.1-CompileCModuleToWebAssembly/hello.c[lines=2..7]
+----
++
+Compile the source code
+[source,bash]
+emcc hello.c -o hello.html
++
+and it would generate
++
+* hello.html
+* hello.js
+* hello.wasm
+
+3. Serve the generated files via a http server.
++
+We use httpd via Docker here.
++
+After that, visit `http://localhost:8080/hello.html`.
+
+For minimal version, check link:./1.1-CompileCModuleToWebAssembly/minimal/[source code directory of minimal] and visit `http://localhost:8080/hello2.html`
