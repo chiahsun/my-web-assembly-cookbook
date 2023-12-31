@@ -1,0 +1,54 @@
+
+=== Inside WebAssembly
+
+==== Install https://github.com/wasm3/wasm3/tree/main[Wasm3]
+
+Wasm3 is a WebAssembly interpreter.
+
+Its https://github.com/wasm3/wasm3/blob/main/docs/Cookbook.md[Cookbook]
+
+[source,bash]
+brew install wasm3
+
+[source,wat]
+----
+include::./2.1-InsideWebAssembly/2.1.1-Wasm3/swap.wat[lines=2..7]
+----
+
+[source,bash]
+----
+$ wat2wasm swap.wat -o swap.wasm
+$ wasm3 --repl swap.wasm
+wasm3> :invoke swap 123 456
+Result: 456:i32, 123:i32
+----
+
+[source,wat]
+----
+include::./2.1-InsideWebAssembly/2.1.1-Wasm3/hello.wat[]
+----
+
+[source,bash]
+----
+$ wat2wasm hello.wat -o hello.wasm
+$ wasm3 hello.wasm
+----
+
+https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/Variables/Local[MDN WebAssembly Local]
+[source,wat]
+----
+include::./2.1-InsideWebAssembly/2.1.1-Wasm3/local.wat[]
+----
+
+
+
+==== Install the https://github.com/WebAssembly/wabt[WebAssembly Binary Toolkit]
+
+For `wasm2wat`,
+
+[source,bash]
+brew install wabt
+
+
+TODO
+https://webassembly.github.io/wabt/demo/wat2wasm/

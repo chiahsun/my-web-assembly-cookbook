@@ -5,6 +5,7 @@
 :toclevels: 4
 // https://docs.asciidoctor.org/asciidoc/latest/verbatim/source-blocks/
 // https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/highlightjs/
+// https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md
 :source-highlighter: highlight.js
 :highlightjs-languages: bash, dart
 :source-language: adoc
@@ -20,6 +21,8 @@
 = WebAssembly Org
 == https://webassembly.org/getting-started/developers-guide/[Developer's Guide]
 include::1.1-CompileCModuleToWebAssembly.adoc[]
+include::2.1-InsideWebAssembly.adoc[]
+
 
 
 

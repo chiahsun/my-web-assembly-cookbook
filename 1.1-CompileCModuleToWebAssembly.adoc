@@ -48,7 +48,7 @@ Check link:./1.1-CompileCModuleToWebAssembly/1.1.2-CompileMinimal/[source code d
 
 Visit `http://localhost:8080/hello3.html`
 
-[source]
+[source,c]
 ----
 include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/hello3.c[lines=9..18]
 ----
@@ -81,7 +81,7 @@ include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/hello3.c[lines=21..2
 [source,js]
 include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/sqrt.js[lines=1]
 
-Then, you can try the following in the browser console.
+Try `int_sqrt` in the browser console.
 
 [source]
 int_sqrt(28)
