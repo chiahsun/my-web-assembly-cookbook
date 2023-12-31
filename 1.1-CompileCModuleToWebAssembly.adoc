@@ -47,3 +47,41 @@ Check link:./1.1-CompileCModuleToWebAssembly/1.1.2-CompileMinimal/[source code d
 ==== https://developer.mozilla.org/en-US/docs/WebAssembly/C_to_wasm#calling_a_custom_function_defined_in_c[Call a Custom Function in C]
 
 Visit `http://localhost:8080/hello3.html`
+
+[source]
+----
+include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/hello3.c[lines=9..18]
+----
+
+[source,html]
+----
+<button id="mybutton">Run myFunction</button>
+----
+
+[source,js]
+----
+document.getElementById("mybutton").addEventListener("click", () => {
+    alert("check console");
+    const result = Module.ccall(
+      "myFunction", // name of C function
+      null, // return type
+      null, // argument types
+      null, // arguments
+    );
+  });
+----
+
+[source,c]
+----
+include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/hello3.c[lines=3]
+// ...
+include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/hello3.c[lines=21..23]
+----
+
+[source,js]
+include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/sqrt.js[lines=1]
+
+Then, you can try the following in the browser console.
+
+[source]
+int_sqrt(28)
