@@ -1,0 +1,9 @@
+// https://api.html-tidy.org/tidy/tidylib_api_5.6.0/tidy_config.html
+indent: auto
+indent-spaces: 2
+wrap: 72
+markup: yes
+output-xml: no
+input-xml: no
+new-inline-tags: canvas progress
+new-blocklevel-tags: figure

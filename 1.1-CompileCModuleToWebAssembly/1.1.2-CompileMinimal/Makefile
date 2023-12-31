@@ -1,5 +1,5 @@
 APP=hello2
-GENERATED=hello2.html hello2.js hello2.wasm shell_minimal.html
+TARGETS=hello2.html hello2.js hello2.wasm shell_minimal.html
 
 all: compile
 
@@ -20,4 +20,4 @@ stop-http:
 	docker rm $(APP)
 
 clean:
-	rm -f $(GENERATED)
+	rm -f $(TARGETS)
