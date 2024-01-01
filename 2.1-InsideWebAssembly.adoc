@@ -22,18 +22,18 @@ include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/simplest.dump[]
 
 [source,wasm]
 ----
-include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/add.wat[]
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/double.wat[]
 ----
 
 [source,shell]
 ----
-$ wasm3> :invoke add 1
+$ wasm3> :invoke double 1
 Result: 2:i32
 ----
 
 [source,wasm]
 ----
-include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/add2.wat[]
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/add.wat[]
 ----
 
 [source,shell]
@@ -41,6 +41,13 @@ include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/add2.wat[]
 $ wasm3> :invoke add 1 2
 Result: 3:i32
 ----
+
+[source,html]
+----
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/add.html[]
+----
+
+Start the http server and visit `http://localhost:8080/add.html`
 
 
 ==== Install https://github.com/wasm3/wasm3/tree/main[Wasm3]
