@@ -68,6 +68,20 @@ include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/logger.wat[lines
 
 Start the http server and visit `http://localhost:8080/logger.html`
 
+[source,wasm]
+----
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/global.wat[lines=2..]
+----
+<1> `mut`: mutable for a variable
+
+[source,html]
+----
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/global.html[lines=2..]
+----
+<1> Declare a equivalent value using JS
+
+Visit `http://localhost:8080/global.html`
+
 ==== Install https://github.com/wasm3/wasm3/tree/main[Wasm3]
 
 Wasm3 is a WebAssembly interpreter.

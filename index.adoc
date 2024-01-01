@@ -5,7 +5,12 @@
 :toclevels: 4
 // https://highlightjs.org/examples
 :source-highlighter: highlight.js
-:highlightjs-theme: atom-one-dark
+// :highlightjs-theme: atom-one-dark
+// :highlightjs-theme: github-dark-dimmed
+:highlightjs-theme: night-owl
+// :highlightjs-theme: nnfx-dark
+// :highlightjs-theme: github
+:highlightjs-languages: html
 :source-language: adoc
 :icons: font
 :stem: <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-MML-AM_HTMLorMML"></script>

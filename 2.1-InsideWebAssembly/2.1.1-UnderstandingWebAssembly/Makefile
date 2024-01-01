@@ -1,4 +1,4 @@
-TARGETS=add.wasm double.wasm logger.wasm
+TARGETS=add.wasm double.wasm logger.wasm global.wasm
 APP=add-app
 
 all: $(TARGETS)
