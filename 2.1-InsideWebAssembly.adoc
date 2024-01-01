@@ -49,6 +49,24 @@ include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/add.html[]
 
 Start the http server and visit `http://localhost:8080/add.html`
 
+[source,wasm]
+----
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/call.wat[lines=2..]
+----
+
+[source,shell]
+----
+$ ./run.sh call.wat
+wasm3> :invoke getAnswerPlus1
+Result: 43:i32
+----
+
+[source,wasm]
+----
+include::./2.1-InsideWebAssembly/2.1.1-UnderstandingWebAssembly/logger.wat[lines=2..]
+----
+
+Start the http server and visit `http://localhost:8080/logger.html`
 
 ==== Install https://github.com/wasm3/wasm3/tree/main[Wasm3]
 
