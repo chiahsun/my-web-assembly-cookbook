@@ -1,0 +1,24 @@
+
+
+=== https://github.com/ziglang/zig[Zig]
+
+https://github.com/wasm3/wasm3/blob/main/docs/Cookbook.md[Example]
+
+[source,shell]
+$ brew install zig
+
+[source,c]
+----
+include::./3.2-Zig/3.2.1-HelloWorld/hello.c[lines=2..]
+----
+
+[source,shell]
+$ zig build-exe -O ReleaseSmall -target wasm32-wasi hello.c -lc
+
+[source,shell]
+----
+$ wasm3 hello.wasm
+Hello, world!
+----
+
+It seems C/C++ only.

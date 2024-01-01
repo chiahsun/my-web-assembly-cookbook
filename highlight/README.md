@@ -13,9 +13,13 @@ To render WASM, we have no callouts and to render callouts we have to WASM. We c
 https://cdnjs.com/libraries/highlight.js/11.9.0
 
 
+From parent directory,
+
 ```shell
 $ tree highlight
 highlight
+├── README.md
+├── download.sh
 ├── highlight.min.js
 ├── languages
 │   ├── bash.min.js
@@ -27,7 +31,7 @@ highlight
 │   ├── wasm.min.js
 │   └── xml.min.js
 └── styles
-    └── atom-one-dark.min.css
+    └── night-owl.min.css
 
-3 directories, 10 files
+3 directories, 12 files
 ```
