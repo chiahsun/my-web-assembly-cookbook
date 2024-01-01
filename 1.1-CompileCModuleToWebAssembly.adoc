@@ -5,8 +5,8 @@
 +
 On Mac, install Emscripten through brew https://formulae.brew.sh/formula/emscripten[formula]
 +
-[source,bash]
-brew install emscripten
+[source,shell]
+$ brew install emscripten
 
 ==== Compile C/C++ Module Example
 
@@ -20,8 +20,8 @@ include::./1.1-CompileCModuleToWebAssembly/1.1.1-CompileExample/hello.c[lines=2.
 ----
 +
 Compile the source code
-[source,bash]
-emcc hello.c -o hello.html
+[source,shell]
+$ emcc hello.c -o hello.html
 +
 and it would generate
 +
@@ -33,7 +33,7 @@ and it would generate
 +
 For example, use httpd via Docker.
 +
-[source]
+[source,dockerfile]
 ----
 include::./1.1-CompileCModuleToWebAssembly/1.1.1-CompileExample/Dockerfile[lines=1..3]
 ----
@@ -83,5 +83,5 @@ include::./1.1-CompileCModuleToWebAssembly/1.1.3-CallCustom/sqrt.js[lines=1]
 
 Try `int_sqrt` in the browser console.
 
-[source]
-int_sqrt(28)
+[source,shell]
+$ int_sqrt(28)
