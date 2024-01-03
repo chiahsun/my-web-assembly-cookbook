@@ -1,0 +1,27 @@
+
+==== Build Rust Compiler Image
+
+[source,shell]
+$ cargo new --lib rust-compiler
+
+[source,shell]
+----
+$  tree rust-compiler
+rust-compiler
+├── Cargo.toml
+└── src
+    └── lib.rs
+
+2 directories, 2 files
+----
+
+Add the `Dockerfile` under `rust-compiler`
+[source,dockerfile]
+----
+include::./rust-compiler/Dockerfile[lines=2..]
+----
+
+[source,shell]
+$ cd rust-compiler
+$ docker build -t my-rust-web-compiler .
+

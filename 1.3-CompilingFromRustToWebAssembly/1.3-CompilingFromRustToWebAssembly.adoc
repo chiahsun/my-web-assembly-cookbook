@@ -1,0 +1,88 @@
+
+=== https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_Wasm[Compiling from Rust to WebAssembly]
+
+include::1.3.1-BuildRustCompilerImage/1.3.1-BuildRustCompilerImage.adoc[]
+
+==== Compile Rust to WebAssembly
+
+[source,shell]
+----
+$ cargo new --lib hello-wasm
+$ tree hello-wasm
+hello-wasm
+├── Cargo.toml
+└── src
+    └── lib.rs
+
+2 directories, 2 files
+----
+
+[source,shell]
+----
+include::hello-wasm/src/lib.rs[lines=2..]
+----
+
+Add the following lines to `Cargo.toml`
+[source,toml]
+----
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2"
+----
+
+Under `hello-wasm`, compile using the command
+
+[source,bash]
+----
+include::hello-wasm/compile.sh[]
+----
+
+and the generated files would be
+[source,shell]
+----
+$ tree hello-wasm/pkg
+hello-wasm/pkg
+├── hello_wasm.d.ts
+├── hello_wasm.js
+├── hello_wasm_bg.wasm
+└── hello_wasm_bg.wasm.d.ts
+
+1 directory, 4 files
+----
+
+Add `index.html`
+
+[source,html]
+----
+include::./hello-wasm/index.html[lines=2..]
+----
+
+[source,shell]
+----
+$  tree hello-wasm -L 2
+hello-wasm
+├── Cargo.lock
+├── Cargo.toml
+├── compile.sh
+├── index.html
+├── pkg
+│   ├── hello_wasm.d.ts
+│   ├── hello_wasm.js
+│   ├── hello_wasm_bg.wasm
+│   └── hello_wasm_bg.wasm.d.ts
+├── src
+│   └── lib.rs
+└── target
+    ├── CACHEDIR.TAG
+    ├── release
+    └── wasm32-unknown-unknown
+----
+
+Under `hello-wasm`, you can serve http by using
+
+[source,bash]
+----
+include::./hello-wasm/run-http-server.sh[lines=2..]
+----

@@ -20,9 +20,13 @@
 
 [discrete]
 = Tutorials & Guides
-== https://webassembly.org/getting-started/developers-guide/[WebAssembly Org Developer's Guide]
+== https://developer.mozilla.org/en-US/docs/WebAssembly[MDN Web Docs on WebAssembly]
+
+https://webassembly.org/getting-started/developers-guide/[WebAssembly Org Developer's Guide]
+
 include::1.1-CompileCModuleToWebAssembly.adoc[]
 include::2.1-InsideWebAssembly.adoc[]
+include::1.3-CompilingFromRustToWebAssembly/1.3-CompilingFromRustToWebAssembly.adoc[]
 
 [discrete]
 = Toolchains & Applications
