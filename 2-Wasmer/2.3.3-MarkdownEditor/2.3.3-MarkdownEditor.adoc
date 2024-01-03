@@ -1,0 +1,42 @@
+
+
+==== Example: https://docs.wasmer.io/javascript-sdk/tutorials/run[Markdown Editor]
+
+Check the https://github.com/wasmerio/wasmer-js/tree/main/examples/markdown-editor[full original source]
+
+1. Build `markdown-renderer/target/wasm32-wasi/release/markdown-renderer.wasm`, there are two ways
+* Install `cargo` in your host machine
++
+Install https://www.rust-lang.org/tools/install[Rust]
++
+Install https://rustwasm.github.io/docs/book/game-of-life/setup.html[WebAssembly requirements for Rust]
++
+[source,shell]
+----
+$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$ cargo install wasm-pack
+$ cargo install cargo-generate
+----
++
+[source.shell]
+$ rustup target add wasm32-wasi # This is the key ...
++
+[source,shell]
+$ brew install rust # Havn't try this yet, maybe we can use this and don't need to install wasm-pack and cargo-generate
+
+* Use a docker container
++
+[source,dockerfile]
+----
+include::./markdown-renderer/Dockerfile[]
+----
++
+[source,shell]
+$ docker run -it --name to-compile-rust -v "$PWD":/usr/src/myapp -w /usr/src/myapp my-rust-wasm32-wasi-compiler cargo build --release --target=wasm32-wasi
+
+2. Run the WebAssembly
++
+[source,ts]
+----
+include::./index.ts[lines=2..8]
+----

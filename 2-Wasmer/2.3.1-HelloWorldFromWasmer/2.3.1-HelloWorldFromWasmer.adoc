@@ -1,0 +1,12 @@
+
+==== Example: Hello World from Wasmer
+
+[source,ts]
+----
+include::./index.ts[]
+----
+
+[source,html]
+----
+include::./index.html[]
+----

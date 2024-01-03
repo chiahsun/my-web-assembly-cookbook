@@ -1,0 +1,67 @@
+
+==== https://docs.wasmer.io/javascript-sdk/tutorials/package[Migrate the Markdown Editor to a Wasmer Package]
+
+Check the https://github.com/wasmerio/wasmer-js/tree/main/examples/markdown-editor-improved[full source code].
+
+1. Login to your Wasmer account first
++
+[source,shell]
+----
+$ wasmer login
+$ wasmer whoami
+----
+
+2. Publish `markdown-renderer` as a Wasmer package
++
+Under `markdown-renderer`, run
++
+[source,shell]
+----
+$ wasmer init
+NOTE: Initializing wasmer.toml file with metadata from Cargo.toml
+...
+----
++
+You should have `markdown-renderer.wasm` available from previous exercise.
++
+[source,shell]
+----
+$ find . -name 'markdown-renderer.wasm'
+./target/wasm32-wasi/release/markdown-renderer.wasm
+----
++
+[source,shell]
+----
+$ wasmer publish
+[1/2] ⬆️   Uploading...
+[2/2] 📦  Publishing...
+Successfully published package ...
+----
+3. Use your published package
+
+[source,ts]
+----
+include::index.ts[lines=2..3]
+
+async function initialize() {
+    await init();
+    return Wasmer.fromRegistry("your-account/markdown-renderer");
+}
+
+// ...
+
+include::index.ts[lines=18..22]
+    // ...
+}
+
+// ...
+
+include::index.ts[lines=30..36]
+    // ...
+    }
+// ...
+}
+----
+
+
+

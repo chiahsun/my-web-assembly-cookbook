@@ -1,0 +1,15 @@
+
+==== Example: Source Code Runner
+
+[source,ts]
+----
+include::./index.ts[]
+----
+
+[source,html]
+----
+include::./index.html[]
+----
+
+The problem here is that wasm is not cached by the browser. The `python/python` gets downloaded each time user refreshes the page.
+

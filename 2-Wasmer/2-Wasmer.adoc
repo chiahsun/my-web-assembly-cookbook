@@ -1,0 +1,80 @@
+
+== https://github.com/wasmerio/wasmer[Wasmer]
+
+=== Installation
+
+https://wasmer.io/[Official site]
+
+[source,shell]
+$ brew install wasmer
+
+=== https://docs.wasmer.io/runtime/get-started[Get Started]
+
+[source,shell]
+$ wasmer run python/python -- -c "print(1+1)"
+
+
+=== Run in https://docs.wasmer.io/javascript-sdk[Browser] - https://docs.wasmer.io/javascript-sdk[The Wasmer JavaScript SDK]
+
+[source,shell]
+$ npm install -S @wasmer/sdk
+
+For any application using npm and vite we use the following setups.
+
+[source,shell]
+----
+$ npm init -y
+$ npm install --save @wasmer/sdk
+$ npm install vite --save-dev
+----
+
+Add two lines to `package.json`
+
+[source]
+----
+"scripts": {
+    "dev": "vite",
+    "build": "vite build",
+}
+----
+
+Alternatively, you can use `jq` to add key value pairs.
+
+[source,shell]
+$ brew install jq
+$ cat package.json | jq '.+{scripts:{test:.scripts.test, dev: "vite", build: "vite build"}}'
+
+
+To solve cross-origin issue for Wasmer module loading, you need to install
+
+* https://github.com/chaosprint/vite-plugin-cross-origin-isolation[Vite plugin for CORS]
++
+[source,shell]
+$ npm i -D vite-plugin-cross-origin-isolation
+
+* and put `vite.config.js` in your npm project root.
+
+[source,js]
+----
+include::./2.3.1-HelloWorldFromWasmer/vite.config.js[]
+----
+
+
+See also:
+
+* https://docs.wasmer.io/javascript-sdk/explainers/troubleshooting#sharedarraybuffer-and-cross-origin-isolation[Troubleshooting]
+* https://vitejs.dev/config/[Vite config]
+
+include::./2.3.1-HelloWorldFromWasmer/2.3.1-HelloWorldFromWasmer.adoc[]
+
+include::./2.3.2-SourceCodeRunner/2.3.2-SourceCodeRunner.adoc[]
+
+include::./2.3.3-MarkdownEditor/2.3.3-MarkdownEditor.adoc[]
+
+include::./2.3.4-MarkdownEditorInWasmerPackage/2.3.4-MarkdownEditorInWasmerPackage.adoc[]
+
+I tried following the doc, its Wasm package ,and even build the source code in its repository, but it doesn't work as expected (i.e. now markdown rendered output, only raw output).
+
+Maybe there is some tricky config for packaging the Wasm.
+
+Wait later to try again or try other examples first.
