@@ -78,3 +78,6 @@ I tried following the doc, its Wasm package ,and even build the source code in i
 Maybe there is some tricky config for packaging the Wasm.
 
 Wait later to try again or try other examples first.
+
+include::CreateAnInteractiveTerminal/CreateAnInteractiveTerminal.adoc[]
+

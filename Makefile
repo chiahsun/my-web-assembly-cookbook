@@ -1,12 +1,7 @@
 ROOT=.
 
-all: build view
+all: build view update-gitignore
 -include $(ROOT)/asciidoc.mk
+-include gitignore.mk
 
-
-update-gitignore:
-	cat Mine.gitignore > .gitignore
-	echo "\n\n# Rust gitignore" >> .gitignore
-	cat Rust.gitignore >> .gitignore
-	echo "\n\n# Python gitignore" >> .gitignore
-	cat Python.gitignore >> .gitignore
+clean: clean-gitignore

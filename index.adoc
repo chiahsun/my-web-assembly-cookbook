@@ -33,8 +33,8 @@ include::RunWebAssemblyFromPython/RunWebAssemblyFromPython.adoc[]
 [discrete]
 = Toolchains & Applications
 // include::3.1-Emscripten.adoc[]
-include::2-Wasmer/2-Wasmer.adoc[]
-include::3.2-Zig.adoc[]
+include::Wasmer/Wasmer.adoc[]
+include::Zig/Zig.adoc[]
 
 
 

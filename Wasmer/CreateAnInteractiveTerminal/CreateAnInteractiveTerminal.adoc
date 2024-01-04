@@ -1,0 +1,78 @@
+
+==== https://docs.wasmer.io/javascript-sdk/tutorials/xterm-js[Create an Interactive Terminal with XTerm.js]
+
+Check the https://github.com/wasmerio/wasmer-js/tree/main/examples/wasmer.sh[full source code]
+
+[source,shell]
+----
+$ npm init -y
+$ npm install @wasmer/sdk xterm xterm-addon-fit
+$ npm install vite --save-dev
+----
+
+Modify `package.json`
+
+[source,shell]
+----
+$ mv package.json package.json.bak
+$ cat package.json.bak | jq '.+{scripts:{test:.scripts.test, dev: "vite", build: "vite build", preview: "vite preview"}}' > package.json
+----
+
+`package.json`
+
+[source,json]
+----
+include::package.json[]
+----
+
+`index.html`
+
+[source,html]
+----
+include::index.html[]
+----
+
+For `index.ts`,
+
+1. Initialization pf Wasmer SDK, terminal and its addon.
++
+[source,ts]
+----
+include::index.ts[lines=9..19]
+    // ...
+}
+----
+
+2. Initialize the bash module from Wasmer registry and connection streams from bash instance to terminal
++
+[source,ts]
+----
+include::index.ts[lines=9]
+    // ...
+include::index.ts[lines=22..29]
+----
+
+3. Implement `connectStream` for data pipes between bash in Wasm and terminal.
++
+[source,ts]
+----
+include::index.ts[lines=7..9]
+    // ...
+}
+
+include::index.ts[lines=31..38]
+----
+
+4. Be sure to add `vite.config.js` to avoid CORS error.
++
+[source,ts]
+----
+include::vite.config.js[]
+----
+
+5. Run your server
++
+[source,bash]
+----
+include::run_npm_dev.sh[lines=2..]
+----
