@@ -1,0 +1,78 @@
+
+==== Compile `.wasm` from Rust Source
+
+
+1. Build the compiler image
++
+[source,shell]
+----
+$ cargo new --lib rust-compiler-raw
+----
++
+Under `rust-compiler-raw`, add the Dockerfile
++
+[source,bash]
+----
+include::rust-compiler-raw/Dockerfile[]
+----
+<1> Add the target `wasm32-unknown-unknown` called by Python directly
++
+[source,bash]
+----
+include::rust-compiler-raw/build-docker.sh[]
+----
+
+2. Build the `.wasm`
++
+[source,bash]
+----
+cargo new --lib simple
+----
++
+Add the two lines to your Cargo.toml
++
+[source,toml]
+----
+[lib]
+crate-type = ["cdylib"]
+----
++
+Modify `lib.rs` as
++
+[source,rs]
+----
+include::simple/src/lib.rs[lines=2..]
+----
++
+Compile by
++
+[source,bash]
+----
+include::simple/build-wasm.sh[]
+----
++
+[source,shell]
+----
+$ file ./target/wasm32-unknown-unknown/release/simple.wasm
+./target/wasm32-unknown-unknown/release/simple.wasm: WebAssembly (wasm) binary module version 0x1 (MVP)
+----
++
+[source,shell]
+----
+$ wasm2wat target/wasm32-unknown-unknown/release/simple.wasm
+(module
+  (type (;0;) (func (param i32 i32) (result i32)))
+  (func $sum (type 0) (param i32 i32) (result i32)
+    local.get 1
+    local.get 0
+    i32.add)
+  (table (;0;) 1 1 funcref)
+  (memory (;0;) 16)
+  (global $__stack_pointer (mut i32) (i32.const 1048576))
+  (global (;1;) i32 (i32.const 1048576))
+  (global (;2;) i32 (i32.const 1048576))
+  (export "memory" (memory 0))
+  (export "sum" (func $sum))
+  (export "__data_end" (global 1))
+  (export "__heap_base" (global 2)))
+----

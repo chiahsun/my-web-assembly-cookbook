@@ -1,0 +1,27 @@
+
+=== https://pypi.org/project/wasmer/[Run WebAssembly From Python]
+
+https://github.com/wasmerio/wasmer-python/issues/539[New python version causes import error for Wasmer so we use version 3.9]
+
+[source,shell]
+$ pyenv install 3.9
+
+[source,shell]
+$ pyenv local 3.9
+$ pip install --upgrade pip
+$ pip install wasmer==1.1.0
+$ pip install wasmer_compiler_cranelift==1.1.0
+
+[source,shell]
+$ curl -LO https://github.com/wasmerio/wasmer-python/raw/master/examples/appendices/simple.wasm
+
+[source,python]
+----
+include::simple.py[lines=3..]
+----
+
+[source,shell]
+$ python simple.py
+42
+
+include::CompileWasmFromRustSource/CompileWasmFromRustSource.adoc[]
